@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>What is home cooking</title>
+    <meta charset="UTF-8">
+    <title>Content</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown  active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>What is home cooking</h3>
+                    <p>When she was a child, she always gave her the biggest compliment when she ate her mother's hand-drinks. Mom always replies in the same sentence: "How can you compare with home cooking?" So I have always had high expectations for those dishes that can be called "home cooking".<br><br>
+
+                        I have to take care of three meals in the near future, and occasionally go to a friend's house to eat or cook together. When we discussed each other's cooking skills and showed our own "home cooking", we encountered many interesting experiences and gave me new insights into the word.<br><br>
+
+                        Start with cooking rice. There are many different standards for the amount of rice and water, and the paste that is cooked. When I went to a friend's house for dinner, I found that his accommodation did not provide a rice cooker. He gave the rice water by feeling, then poured it into the pot and cooked it until it was dry. The last boiled, with dry porridge to describe the most appropriate. Everyone has never seen such a white meal, ridiculed it and made the master well.<br><br>
+
+                        Let's talk about cutting vegetables. Someone is going to eat hot pot with side dishes, and I will help you prepare the materials first. Our family cuts the potato and never pays attention to it. I also cut the potato into a diced shape. Anyway, the size is almost the same. When the results came to the table, the friends said that the potatoes were all wrong. They should be flaky or silky. They also asked, "Do you not cook at home?" I listened at the time, and I was embarrassed. Say that our home cooking is like this.<br><br>
+
+                        The home-cooked dishes of many Singaporean families will probably have a dish of braised pork. A friend, Mao, self-recommended to cook Singaporean dishes, and first investigated and asked if the braised pork was sweet or salty. On the day when everyone gathered for dinner, he only asked him to give his opinion on the cooking method, because it was the home-cooked food he was proud of.<br><br>
+
+                        After more of these experiences, I have a new understanding of "home cooking." In fact, home cooking is a common dish cooked at home. Home cooking is not necessarily delicious in the eyes of others. Every child in the family will have their own familiar taste and good standards, but the home cooking is the familiar feeling. Although it is not a mountain treasure, everyone in our circle of friends will still have at least one well-recognized home-cooked dish. From time to time, someone will ask for the roast chicken legs of a friend, the braised pork of friend B, and the braised meat of a friend.<br><br>
+
+                        After sharing my new understanding with my parents recently, my mother said that our definition of “home cooking” has finally reached a consensus. Sometimes they will ask: "Do friends please eat? Friends will cook?" I replied: "Oh, they are all homemade dishes." Then we all laughed. (from the Isle of Wight, UK)<br><br>
+
+                        Home cooking is not necessarily delicious in the eyes of others. Every child in the family will have their own familiar taste and good standards, but the home cooking is the familiar feeling. ——Lin Liqi</p>
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

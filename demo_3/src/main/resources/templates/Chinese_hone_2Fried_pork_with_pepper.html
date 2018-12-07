@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Fried pork with pepper</title>
+    <meta charset="UTF-8">
+    <title>Content</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown  active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>Fried pork with pepper</h3>
+                    <p>Pepper fried meat is a dish made with chili and pork belly as the main ingredients, with soybean
+                        meal, garlic, soy sauce, oil and salt, and MSG as accessories. The taste is spicy.
+                        Pepper fried meat is the signature dish of every dish that Hunan people must eat. It is one of
+                        the most representative Hunan dishes.<br><br>
+                        Is there any Changsha food? What is the standard for Changsha? These two issues have become a hot topic in Changsha's local food defenders in recent days. Some people joked that the country-based logo "CSC" is the English abbreviation for Changsha.
+
+                        In fact, since the October 10 issue of the Japanese newspaper "Sunday Taste" published "Finding Changsha Cuisine", the dispute over Changsha has continued to fertilize on Weibo. Peng Li, editor-in-chief of "Young People" magazine, believes that there is no Changsha cuisine? Pepper fried meat, chopped pepper fish head, taste shrimp, stinky tofu ... they introduced these dishes as a representative of "Changsha".<br><br>
+
+                        In 2009, a group of Japanese youths visited Changsha. They told the media: “Changsha cuisine is delicious.” This is not the first misunderstanding of Hunan people in foreign countries. For people outside Hunan, they have to stay in Changsha. The impression is "Changsha".<br><br>
+
+                        Blood ducks, Dongan chickens and oil teas have become "Changsha dishes" under their mouths.<br><br>
+
+                        "This is not right. In fact, the first restaurant in Changsha to play the 'Changsha Cuisine' banner is the mother's kitchen. The time should be in early 2010." A Changsha restaurant observer said that the new hibiscus of the mother's kitchen "The gimmick that once played "professional Changsha cuisine." "So, what do you think is Changsha?" Faced with this problem, Yihong, the general manager of the kitchen, admitted that the specific dishes belong to Changsha, and there is no conclusion.<br><br>
+
+                        However, the enthusiastic Changsha netizens gave their "Changsha cuisine" standard, Sina Weibo active food molecule "Changsha Laozuo" thinks it should be: a center: with spicy as the center; two basic points: oil heavy color, Wide range of taste and salt; three basic principles: the Chinese New Year will be smoked, the households have pickles, and the taste is updated very quickly! And "Tan Xiaoyou Hongru" believes that Changsha cuisine is a fusion of Hunan cuisine, and is a master of Hunan cuisine. It has no sour southwestern Hunan food, no spicy food like Xiangzhong, tastes lighter than northwestern Hunan, and raw materials are wider than Xiangbei. But some people have concluded that the simplest criterion is: the mother gave me the food I had when I was young, and there was no more authentic answer than this.<br><br>
+
+                        After consulting more than 20 delicious people, Luo listed their "Top Ten Changsha" with high recognition: pepper fried meat, oyster sauce fish head, taste shrimp, taste snake, five round whole chicken, family portrait hodgepodge, planing Pickled fish, simmered in the pot, soup with a hint of belly, hairy venetian blinds.<br><br>
+
+                        Li Yuan, the director of the "Golf Masters", believes that these dishes are only the most authentic in Changsha. Even if you leave Changsha for thousands of miles, the memories of pepper fried meat can suddenly evoke the taste of homesickness. Perhaps the controversy about Changsha is a collection of nostalgia stories about chili and fried meat.</p>
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Content</title>
+    <title>Personal_profile</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/food_content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!--content-->
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main row">
+                <main class="container-paper">
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="container">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" th:if="${ not #strings.isEmpty(msg)}" data-toggle="tab" href="#home1">The Feel of Home</a>
+                                <a class="nav-link active" th:if="${#strings.isEmpty(msg)}" data-toggle="tab" href="#home">The Feel of Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu1">CHINEDE DRINK</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" th:if="${not #strings.isEmpty(msg)}" data-toggle="tab" href="#menu3_1">WESTERN FOOD</a>
+                                <a class="nav-link" th:if="${#strings.isEmpty(msg)}" data-toggle="tab" href="#menu3">WESTERN FOOD</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu4">WESTERN DRINK</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home1" th:if="${not #strings.isEmpty(msg)}" class="container tab-pane"><br>
+                                <h3>The Feel of Home</h3>
+                                <h4>All articles</h4><br><br>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home2_What_is_home_cooking}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                What is home cooking
+                                            </div>
+                                            <p>How can you compare with home cooking?</p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/chinese_food.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home3_meat_ball_with_soy_sauce}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                The head of the lion
+                                            </div>
+                                            <p>The head of the lion, that is, the "big meat" of Yangzhou dialect.</p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/the_head_of_lion.JPG}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_hone_2Fried_pork_with_pepper}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-12">
+                                            <div class="details_title">
+                                                Fried pork with pepper
+                                            </div>
+                                            <p>Pepper fried meat is a dish made with chili and pork belly as the main ingredients.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home_Fish_aubergine}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Fish Aubergine
+                                            </div>
+                                            <p> A long time ago there was a businessman in Sichuan. </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/Chinese_home_fish.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Chinese_home_buddha_jump_wall}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-12">
+                                            <div class="details_title">
+                                                The history of buddha jump wall
+                                            </div>
+                                            <p>Buddhism is a kind of food made with a variety of meats. It has a high nutritional value and is the most rare and delicious food in the world.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                                <div id="home" th:if="${#strings.isEmpty(msg)}" class="container tab-pane active"><br>
+                                <h3>The Feel of Home</h3>
+                                <h4>All articles</h4><br><br>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home2_What_is_home_cooking}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                What is home cooking
+                                            </div>
+                                            <p>How can you compare with home cooking?</p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/chinese_food.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home3_meat_ball_with_soy_sauce}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                The head of the lion
+                                            </div>
+                                            <p>The head of the lion, that is, the "big meat" of Yangzhou dialect.</p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/the_head_of_lion.JPG}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_hone_2Fried_pork_with_pepper}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-12">
+                                            <div class="details_title">
+                                                Fried pork with pepper
+                                            </div>
+                                            <p>Pepper fried meat is a dish made with chili and pork belly as the main ingredients.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_home_Fish_aubergine}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Fish Aubergine
+                                            </div>
+                                            <p> A long time ago there was a businessman in Sichuan. </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/Chinese_home_fish.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Chinese_home_buddha_jump_wall}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-12">
+                                            <div class="details_title">
+                                                The history of buddha jump wall
+                                            </div>
+                                            <p>Buddhism is a kind of food made with a variety of meats. It has a high nutritional value and is the most rare and delicious food in the world.</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                </div>
+                            <div id="menu1" class="container tab-pane fade"><br>
+                                <div class="menu_details_title">
+                                    <h3>Chinese Drink</h3>
+                                </div>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_drink_tea}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                The history of tea
+                                            </div>
+                                            <p>The origin of the "Chinese tea history" has so far been divided, and the controversy has not yet been decided. </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/tea.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_drink_Usu_beer}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-12">
+                                            <div class="details_title">
+                                                Usu beer
+                                            </div>
+                                            <p>The origin of the "Chinese tea history" has so far been divided, and the controversy has not yet been decided. </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--文章-->
+                                <a th:href="@{/Chinese_drink_A_rice_wine}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                A bowl of glutinous rice in the autumn
+                                            </div>
+                                            <p>Glutinous rice, the north is called Jiangmi, and my family likes to call it rice. </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/rice_wine.webp}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="menu3" th:if="${#strings.isEmpty(msg)}" class="container tab-pane"><br>
+                                <div class="menu_details_title">
+                                    <h3>Weatern foods</h3>
+                                </div>
+                                <!--essay-->
+                                <a th:href="@{/Western_food_sirloinsteak}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Sirloin Steak
+                                            </div>
+                                            <p>
+                                                Mainly composed of the spine of the upper waist.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food1.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Western_food_foiegras}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Foie Gras
+                                            </div>
+                                            <p>
+                                                A traditional French dish known as "Foie Gras" in French.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food2.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Western_food_macaroni}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Macaroni
+                                            </div>
+                                            <p>
+                                                A famous pasta in western countries, which can be solid or hollow.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food3.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="menu3_1" th:if="${not #strings.isEmpty(msg)}" class="container tab-pane active"><br>
+                                <div class="menu_details_title">
+                                    <h3>Weatern foods</h3>
+                                </div>
+                                <!--essay-->
+                                <a th:href="@{/Western_food_sirloinsteak}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Sirloin Steak
+                                            </div>
+                                            <p>
+                                                Mainly composed of the spine of the upper waist.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food1.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Western_food_foiegras}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Foie Gras
+                                            </div>
+                                            <p>
+                                                A traditional French dish known as "Foie Gras" in French.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food2.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Western_food_macaroni}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Macaroni
+                                            </div>
+                                            <p>
+                                                A famous pasta in western countries, which can be solid or hollow.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_food3.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div id="menu4" class="container tab-pane fade"><br>
+                                <div class="menu_details_title">
+                                    <h3>Weatern foods</h3>
+                                </div>
+                                <a th:href="@{/Western_drink_lafite}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Chateau lafite
+                                            </div>
+                                            <p>
+                                                Red wine produced by Chateau Lafite, one of the five famous chateaus in bordeaux, France.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_drink2.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                                <a th:href="@{/Western_drink_cappuccino}">
+                                    <div class="menu_details_body col-lg-12">
+                                        <div class="menu_details_info col-lg-8">
+                                            <div class="details_title">
+                                                Cappuccino
+                                            </div>
+                                            <p>
+                                                Developed at the same time as steam pressure coffee machine invented by Italian archibcha.
+                                            </p>
+                                        </div>
+                                        <div class="menu_details_img col-lg-3">
+                                            <img th:src="@{/images/western_drink3.jpg}">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

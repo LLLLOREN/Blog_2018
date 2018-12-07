@@ -1,0 +1,20 @@
+.content_card{
+    width: 100%;
+}
+.comment_headimg{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: inline-block;
+}
+.comment h3{
+    display: inline-block;
+}
+.comment p{
+    margin-left: 4em;
+}
+.container-main-img{
+    width:100%;
+    margin-bottom: 3vw;
+}

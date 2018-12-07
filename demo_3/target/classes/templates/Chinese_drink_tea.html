@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>TEA</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile.html}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>Chinese tea history</h3>
+                    <p>
+                        The origin of the "Chinese tea history" has so far been divided, and the controversy has not yet been decided. Generally speaking, there are pre-Qin, Western Han, and the Three Kingdoms. Tea appeared in a cultural appearance. It was in the Jin and Northern Dynasties. The earliest favorite tea was the literati. After the Kaiyuan in the Tang Dynasty, China’s "tea ceremony" was a big one, and the wind of drinking tea was filled with dynasty, and the wind of tea drinking in the Song Dynasty was increasingly popular. Tea god Lu Yu has a book called "Tea Classics". The Shennong Bencao Classic also records knowledge about tea.<br><br>
+                        As early as before the Qin and Han Dynasties, tea in China was prevalent in Sichuan. In the Western Han Dynasty, tea was a special product of Sichuan. It was passed to the capital Chang'an in the tribute. It turned out that the ancient Sichuan East Hubei was the birthplace of tea trees, and this is the earliest place of the Three Emperors and Five Emperors. Shennong is the leader of the "Three Miao" and "Jiu Li" tribes. In the ancient books such as "Shi Ji·Wu Chuan Chuan" and "Shu Yuan", there are records of "San Miao's, Hengshan in the south, Qishan in the north, the slope in the left Dongting, and the right Pengchuan in the river", which shows the origin of the tribe of Shennong. In the eastern mountains of Sichuan and the western mountains of Hubei, this is the area of ​​today's Great Shennongjia. In such an environment where the vegetation is flourishing and the tea is still rich today, it is entirely possible for Shennong to taste the herb. Later, these tribes continued to move northward or eastward. The northwest became the political center of China to the Emperor of the Sui Dynasty. The political center of the clan society has moved to the Dengfeng area of ​​Henan. In the past few years, the Xia Dynasty was discovered in Wangchenggang. The relics of the site, the entrance of the Daxie, was not smooth sailing. At the beginning, the water was managed on the coast of Jiangsu and Zhejiang, and it flowed into the sea, guiding the Xixi River, Yubuxi, and entering Taihu Lake to overcome the flood. After defeating the windshield, he gradually went north. When Emperor Sui learned that Dagu was able to control the water, he gave way to him. The descendants of "Three Miao" were dissatisfied. Therefore, the "History of the Five Emperors of Shiji" has the record of "three seedlings in the Jianghuai and Jingzhou in the chaos". Dagu Zhishui is in Jiangnan, and history books are also based on: After Qin Shihuang unified China, he once "on the Huiji and sacrificed the Daxie". When Sima Qian was 20 years old, he also "goed to the Huiji and explored the acupoints." . Xia Yuyuan gave way to Bo Yi, the general of Baidu, but he took power for his son Xia Qi. He had three sons of Taikang, Zhongkang and Shaokang, and there was a constant battle for the throne, and the sixth generation of Sun Xia’s political situation was unified. The national strength is strong, he once led the ministry to find the roots in the south, to the west of Zhejiang, stationed in the southeast of the Jindou Mountain, Yanshan Miaofeng, so this mountain is called Lushan. At that time, there were still relics such as Xiawang Village in the city of Shannan. After the Xia Dynasty, eight generations have declined, and the shackles (桀) are deeds, and the deeds are established for the first generation.<br><br>
+                        It is not difficult to see from the existing historical data that the clan society "San Miao" lived in the land, and the tea production did not decline. For example, in the Northern and Southern Dynasties, "Liu Yan purchased tea book" mentioned Anzhou (now Hubei Anlu); "Tongjun Lu" refers to Fuyang (now Hubei Huangfeng East), Badong (Sichuan Fengjie); "Jingzhou Land Record" refers to Wuling (Hunan Changde). They are rich in tea. The historical materials of the Tang Dynasty mentioned that Jiangling, Nanxun, Sichuan Pengjing, Anjing, and Anhui were rich in tea. Lu Yu's "Tea Sutra" mentions that the quality of tea is unknown in the eleven states of Ezhou, now Wuchang, Hubei. It can be seen from this that the "Shen Nong's Herbal Classic" records: "Shen Nong tastes a hundred herbs, the day is sick with seventy-two poisons, and the tea is solved." Even from the facts of tea drinking and selling tea recorded in "Wang Yutong", before the Han Dynasty in China, the production and utilization of tea in the eastern Sichuan and western regions was quite developed. It is not difficult for people to imagine how long it will take from the use of wild tea to the cultivation of tea trees from self-sufficiency to “production, supply and marketing”. Therefore, our ancestors found that the history of using cultivated tea is long. The formation of Chinese tea culture.<br><br>
+                        Tea culture In a broad sense, the natural science of tea and the humanities of tea refer to the sum of the material and spiritual wealth associated with tea created in the historical practice of human society. In a narrow sense, the humanities that focus on tea mainly refer to the function of tea for the spirit and society. Since the natural science of tea has formed an independent system, the tea culture that is often spoken now focuses on the humanities.
+                    </p>
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

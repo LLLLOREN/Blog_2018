@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Sign in</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <link rel="stylesheet" th:href="@{/css/log_in.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var pwd1;
+        var pwd2;
+        function get_pwd2(Content) {
+            pwd2 = Content;
+        }
+        function get_pwd1(Content) {
+            pwd1 = Content;
+        }
+        function check_same() {
+            var text = document.getElementById("wrong");
+            if(pwd2 === pwd1){
+                text.style.display ="none";
+            }else {
+                text.style.color = "red";
+                text.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <div class="background"></div>
+        <div class="row">
+            <div class="col-md-4 col-lg-7 col-sm-1 col-1"></div>
+            <div class="col-sm-10 col-md-5 col-lg-4 col-10 log_in_form">
+                <form th:action="@{/user/register}" method="post">
+                    <div class="form-group">
+                        <label for="name">Your name:</label>
+                        <input type="text" name="username" required="required" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1">Password:</label>
+                        <input type="password" name="password" required="required" class="form-control" id="pwd1" onblur="get_pwd1(this.value);" onkeyup="get_pwd1(this.value); ">
+                    </div>
+                    <div class="form-group" >
+                        <label for="pwd2">Please input your password again:</label>
+                        <input type="password" required="required" class="form-control" id="pwd2" onblur="get_pwd2(this.value); check_same()" onkeyup="get_pwd2(this.value);  check_same()">
+                        <p id="wrong" style="display: none">Please enter the same password as last time.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your email:</label>
+                        <input type="email" name="email" required="required" class="form-control" id="email">
+                    </div>
+                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                    <button type="submit" class="btn btn-primary btn-outline-warning" style="display:inline-block; position:absolute;left: 30%">Sign in</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

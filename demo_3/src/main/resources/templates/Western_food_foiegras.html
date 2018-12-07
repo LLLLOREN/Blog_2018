@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Foie Gras</title>
+    <meta charset="UTF-8">
+    <title>meat ball with soy sauce</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>Foie Gras</h3>
+                    <p>
+                        Foie Gras is a traditional French dish known as "Foie Gras" in French, which is literally translated as "Foie Gras" in Chinese. "Foie" means liver, "Gras" means fat. This famous dish pushes the romance of French food to the extreme, and some people say that foie gras is the most suitable western dish for women. French foie gras is usually served lightly Fried with port or a dark sauce. Another recipe requires "special treatment," in which foie gras, a mixture of other ingredients, is boiled, cooled, sliced and served cold, or drizzled with sauces. The foie gras is usually treated with a blend of cognac, Armagnac, port and truffles.
+                    </p>
+                    <img class="container-main-img" th:src="@{/images/western_food2.jpg}">
+                    <p>
+                        The history of foie gras can be traced back more than 2,000 years to the Romans, who really discovered the delicious and fun of eating foie gras. In the beginning they ate figs with them, and presented them to Caesar, who considered them a good meat. Later spread to Alsace and the rural southwest of France, people gradually began to use foie gras to make meat jellies and pate, and eat with French bread, is both simple and approachable. It was not until the time of Louis xvi of France that foie gras was presented to the court for Louis xv. After tasting it, it was deeply loved by the king. Since then, foie gras became famous and was praised by many famous writers, musicians and artists at that time. In 1870, foie gras was first cooked. A pastry chef serves foie gras wrapped in dough and used at a reception. Since then, Strasbourgian has been associated with foie gras, and many people think it's the best foie gras in the world.
+                    </p>
+
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

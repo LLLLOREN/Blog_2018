@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Fried pork with pepper</title>
+    <meta charset="UTF-8">
+    <title>meat ball with soy sauce</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown  active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>The head of the lion</h3>
+                    <p>The head of the lion, that is, the "big meat" of Yangzhou dialect, the northern dialect is called "big meatballs" or "four-up balls". It is said that its "far ancestor" is the "jumping pill" recorded in the "Food Classics" of the Northern and Southern Dynasties ("Qi Min Yao Shu. The Eighty Laws of the Law").<br><br>
+                        According to historical records, when Emperor Sui took the squatter and took a dragon boat and thousands of ships along the Grand Canal southward, "the county has a five-mile mile to eat. One state to one hundred miles, the water is rare." ("Zi Zhi Tong Jian"). Yang Guang saw the Qionghua of Yangzhou, especially the Yangzhou Wansong Mountain, the Money Pier, the Ivory Forest, and the Sunflower Garden. After returning to the palace, he ordered the royal chef to make four dishes with the above four scenes. Under the guidance of Yangzhou famous chefs, the royal chefs finally made four dishes of squirrel mandarin fish, money shrimp cake, chicken bud chicken and sunflower meat. After Yang Guang tasted it, he was very happy, so he gave a banquet to the ministers. For a time, Huaiyang dishes became popular.<br><br>
+                        In the Tang Dynasty, as the economy prospered, bureaucrats and dignitaries began to pay attention to diet. On one occasion, Wei Guogong Wei Wei banquet, the famous chef Wei Juyuan of Fuzhong also made these four famous dishes of Yangzhou, accompanied by the mountains and sea, the water and the land, so that the guests were amazed. When the "Kwai Fen Meat" dish came up, I saw that the sunflower heart made of the huge meat dumplings was exquisite, like the head of a lion. The guests took the opportunity to persuade the wine: "The country is half-lived, and the war is good, and the lion should be worn." Wei Wei happily lifted the glass and said: "To commemorate today's event, 'Sunflower' is better than changing its name' The lion's head '." One call, the Yangzhou has added the "lion head" this famous dish.<br><br>
+                        In the Qing Dynasty, when Emperor Qianlong went to the south of the Yangtze River, he brought this dish into Kyoto and made it one of the Qing Dynasty dishes. During the Jiaqing years, Ganquan Renlin’s "Three Poems of the Lijiang River" was also sung by Yangzhou's "Sunflower Meatballs". Its preface: "The meat is finely cut into rough pills, and fried with glutinous rice into sunflower yellow, commonly known as sunflower meatballs." Its poem: "Bin kitchen has been cut frequently, and the sunflowers are letting go. Newly Thinking about the day, there are people who eat meat."<br><br>
+                        Emperor Yang Guang, after watching Qionghua in Yangzhou, stayed in the south of the Yangtze River and watched countless beautiful scenery. After he took over Wansong Mountain, Money Pier, Ivory Forest, and Sunflower Land in Yangzhou, he appreciated the garden and won the name of Qianjinshan, Maoerdun, Pingshantang and Qiong. Flower view. After returning to the palace, they also called the royal chef to make four dishes to the scene, in order to remember the trip to Yangzhou in Jiangnan. (The custom of the dishes in the ancient times to imitate the scenery of the garden.) Made four famous dishes. These four dishes are 1 squirrel mandarin fish, 2 money shrimp cake, 3 ivory chicken strips, and 4 sunflowers. After Yang Guang tasted it, he was very happy. So, he gave a feast to the ministers and became a dish in the south. The dignitaries of the bureaucrats are also honored to have these four dishes and are regarded as treasures.<br><br>
+                        In the Tang Dynasty, it was a golden plate and a jade. On this day, the banquet of the country, the famous chef Wei Juyuan made the squirrel mandarin fish, the money shrimp cake, the ivory chicken strip, the sunflower offering four famous dishes, accompanied by the mountains and sea, the water and the land. The guests are all stunned. When the sunflower is served with meat, it is only the sunflower heart made of huge meatballs. It is beautiful, just like the head of a lion. The country’s half-year-old Hummer’s squad, the war was brilliant, and the guests persuaded the wine: “The public should wear the nine-headed lion seal.” Yan Guogong toasted and said, “To commemorate the meeting of the present day, the sunflower meat is better changed to the 'lion head. '." Since then, Weiyang famous dishes, added a "lion head", braised, steamed, and popular.<br><br>
+                    </p>
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

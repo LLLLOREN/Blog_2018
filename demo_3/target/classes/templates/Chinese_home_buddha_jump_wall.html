@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy">
+    <title>Buddha jump wall</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/Personal_profile.css}">
+    <link rel="stylesheet" th:href="@{/css/Content.css}">
+    <script th:src="@{/js/jquery.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script th:src="@{/js/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script th:src="@{/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="blog">
+    <img th:src="@{/images/black-pepper-bright-colors-940302.jpg}" class="body_background_img">
+    <header>
+        <div class="header row">
+            <nav class="navbar navbar-expand-lg navbar-light col-sm-12" style="background-color: rgba(	205 ,149 ,12,.15);">
+                <div class="collapse navbar-collapse navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/index}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/Personal_profile}">About us</a>
+                        </li>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-togglen" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Intro
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/food_content_l}">Western foods</a>
+                                <a class="dropdown-item" th:href="@{/food_content}">Chinese foods</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                    <form class="form-inline" th:action="@{/page/findPage}" method="post">
+                        <div class="form-details">
+                            <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile_navbar">
+            <button data-toggle="collapse" data-target="#demo" class="d-md-none navbar-toggler" type="button">
+                <img th:src="@{/images/Category.png}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="demo" class="collapse phone_bar col-md-12 col-sm-12">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Personal_profile}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Western desert</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/food_content}">Chinese food</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!--pc and pad card-->
+    <article class="d-none d-lg-block">
+        <div class="card " style="width: 20%">
+            <div class="card-inner">
+                <img class="card-img-top " th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-center" th:text="${session.LoginUser}" th:if="${not #strings.isEmpty(session.LoginUser)}">Hello world!</h4>
+                <h4 class="card-title text-center" th:if="${#strings.isEmpty(session.LoginUser)}">Hello</h4>
+                <p class="card-text hidden-sm text-center">Welcome to our blog!</p>
+                <div class="text-center">
+                    <a th:href="@{/Sign_in}" class="btn btn-outline-info" ><span class="hidden-sm " >Sign up</span></a>
+                    <a th:href="@{/Log_in}" class="btn btn-outline-info"><span class="hidden-sm">Sign in</span></a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="body-content_shift body-content">
+        <div class="body-container">
+            <div class="container-main">
+                <main class="container-paper">
+                    <!--smartphone-->
+                    <article class="d-lg-none">
+                        <div class="row phone_card">
+                            <div class="col-sm-12">
+                                <img class="card-img-top" th:src="@{/images/animal-ape-banana-321552.jpg}" alt="Card image cap">
+                            </div>
+                            <div class="card-body phone_card_body">
+                                <h4 class="card-title text-center">Hello world!</h4>
+                                <p class="card-text text-center">Welcome to our blog!</p>
+                                <div class="text-center">
+                                    <a th:href="@{/Sign_in}" class="btn btn-outline-info text-center" ><span class="hidden-sm " >Sign up</span></a>
+                                    <a th:href="@{/Log_in}" class="btn btn-outline-info text-center"><span class="hidden-sm">Sign in</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!--content-->
+                    <h3>The history of buddha jump wall</h3>
+                    <p>This dish of Buddha's jumping wall is said to have originated in the Qing Dynasty and has a history of more than two hundred years. This dish is made up of 18 kinds of main ingredients and more than 10 kinds of accessories. Its raw materials are chicken and duck, pork belly, hoof tip, tendon ham, ham, chicken and duck bream; there are shark's fin, sea cucumber, abalone, scallop, fish high belly; there are also more than 30 kinds of pigeon eggs, mushrooms, bamboo shoots, bamboo rafts, etc. The raw materials and auxiliary materials are processed separately.<br><br>
+                        There are quite a lot of arguments about the origin of this dish. According to Mr. Fei Xiaotong, one said that the person who invented this dish was a group of people who wanted rice. These are smashing the earthen jars, and I have to eat everywhere every day, and gather all the leftovers and rice leftovers in the rice shop.<br><br>
+                        It is said that one day, a restaurant owner went out and accidentally smelled a strange fragrance on the street. Musk found that the leftovers in the broken jar were poured together with all kinds of leftovers. The boss was thus enlightened, and returned to the store with a variety of raw materials mixed with a pair of wines, creating a Buddha jump wall.<br><br>
+                        Second, there is a rule in Fujian customs called “test kitchen”. According to this rule, the newlyweds will go to the door on the first day and return to the door the next day. On the third day, they must go to the husband's house to try the kitchen in front of the public. This is a test of the new wife's ability to rule the family.<br><br>
+                        According to legend, there is a woman who is used to being a little pampered. Before the marriage, I was worried about the upcoming chef. The mother tried her best for her daughter. In the end, she found out the treasures of her family's mountains and seas. After preparation, she used a lotus leaf to make a small bag and repeatedly used her daughter's various raw materials to cook. Who knows that the bride went to the kitchen one day before, and he forgot all kinds of cooking methods in panic. She arrived at the kitchen at night, untied all the ingredients wrapped in her mother's bag, and piled up a table that she couldn't do anything. When she was unable to do anything, she listened to her in-laws to enter the kitchen.<br><br>
+                        The new daughter-in-law is afraid of the in-laws' picky, seeing a jar at the table, and hurriedly loading the raw materials of the lieutenant into the altar. The hand-wrapped lotus leaves are used to wrap the altar, and the jar is placed fast. Fire on the stove. I want to try the kitchen tomorrow, and the new daughter-in-law is afraid that she can't cope with it, and she slips back to her family. The next day, the guests arrived, but they did not see the new wife. The in-laws entered the kitchen and found a jar on the stove, still hot. Just opened the lid, it was full of fragrance, and the guests smelled the scent, which became the Buddha's wall.<br><br>
+                        There is another saying from the notes. According to the notes, this dish was created in Guangxu Bingzi. At that time, an official from Fuzhou set up a banquet for the then ambassador, Zhou Lian. The official's guilt was a master of cooking. She used chicken, duck and pork to join the Shaoxing jar, and she smelled aroma after serving. Zhou Lian tasted the praise, and ordered the family chef Zheng Chunfa to copy. Zheng Chunfa asked for advice from the officials, and returned to transform the raw materials, using more seafood and less meat, and named it "Altar Burning Eight Treasures".<br><br>
+                        It is said that this Buddha has changed three dishes before and after the jump. At the beginning, it was called "Altar Burning Eight Treasures", and later called "Fu Shouquan", and later called "Buddha Jumping Wall". As for the change from "Fu Shou Quan" to "Focus Jumping Wall", there are also two kinds of arguments.<br><br>
+                        One said that after the dish became a good product in Juchun Garden, it was often famous for its literati. After these literati tasted it, they were amazed and inevitably wanted to use poetry to help. One day there is a group of scholars to feast, taking turns to poetry. One of them gave a poem: "The altar is fragrant and fragrant, and the Buddha smells abandoning the zen wall." This means that the scent of this dish is too tempting, even the Buddha will start the heart. Another said, after the dish was scented, it happened to have a temple on the wall. The aroma made the wall and the monk drool, so they ignored the rules and regulations and crossed the wall to request a seat.<br><br>
+                        The food is varied, soft and crisp, the soup is delicious, the taste is delicious, the aftertaste is endless, the nutrition is rich, and the eyesight can be improved, the blood circulation can be relieved, the yin can be supplemented, and the appetite can be increased.<br><br>
+                        The origin of the Buddha's jump wall has to be said from the Qing Daoguang years. It has been more than two hundred years old. Its preparation has been processed with 18 kinds of materials. It is still very smart. It’s a misunderstanding, and it’s a favorite food for everyone.</p>
+                    <br><br>
+                    <!--评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <h2 class="title-lg font_set">Comment</h2>
+                                <div th:each="content:${contents}">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <h3 th:text="${content.getUser_id()}"></h3>
+                                    <p th:text="${content.getContent()}">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <!--添加评论-->
+                    <section class="section brd-btm brd-top">
+                        <div class="row">
+                            <div class="col-sm-12 comment">
+                                <form th:action="@{/comment/addComment}" method="post">
+                                    <img th:src="@{/images/animal-ape-banana-321552.jpg}" alt="" class="comment_headimg">&nbsp;&nbsp;
+                                    <label for="comment"><h5>Your Comment:</h5></label><br><br>
+                                    <textarea class="form-control" name="comment" rows="5" id="comment"></textarea><br>
+                                    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                                    <button class="btn btn-outline-warning" type="submit" style="position: relative; left: 90%">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
