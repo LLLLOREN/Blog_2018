@@ -19,7 +19,7 @@ Jdk环境不同请自行修改jdk版本，jdk 9 ，10是不能运行的
 首先请运行表文件中的建表语句，先users，再pages，comment，最后才是最后一个sql文件
 
  
-我的表建好后是这样的
+下载文件后请删除demo_3文件夹里面的.idea文件
 
 最后请回到application.yml文件，修改自己的username，password，url三项，即可运行
  
